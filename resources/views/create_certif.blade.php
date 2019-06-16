@@ -502,9 +502,10 @@
 
     <section class="content">
         <div class="container-fluid">
-            <div class="block-header">
-                <h2></h2>
-            </div>
+            @if (session()->has('message'))
+                                
+                               <div class="alert alert-success"> {{session('message')}} </div>
+             @endif
 
           <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">

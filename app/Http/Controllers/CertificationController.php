@@ -59,7 +59,8 @@ class CertificationController extends Controller
             'date_valide'=>$request->date_valide
          ]);
          $certif->save();
-         return redirect()->route('register');
+         flash("L'enregistrement  a été effectif");
+         return redirect()->route('create_certif');
         
     }
 
@@ -114,6 +115,7 @@ class CertificationController extends Controller
             'tel'=>$request->tel,
             'licence'=>$request->licence,
             'date_valide'=>$request->date_valide]);
+           flash('LA MISE A JOUR DU JOEUR '. $request->nom .' A ETE EFFECTIVE');
         return redirect()->route('gestion_certif');
     }
 
@@ -127,6 +129,7 @@ class CertificationController extends Controller
     {
         //
         Certification::destroy($id);
+        flash('La suppression a été effctive');
         return redirect()->route('gestion_certif');
     }
 }
